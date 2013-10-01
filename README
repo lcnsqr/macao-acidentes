@@ -1,7 +1,12 @@
 Macao - Acidentes
 
-Gera um mapa de calor das ocorrências de acidentes em rodovias federais. São utilizadas apenas as ocorrências que possuem registro de latitude e longitude.
-
-Autor: 
 Luciano Antonio Siqueira
 lcnsqr@gmail.com
+
+Gera um mapa de calor das ocorrências de acidentes em rodovias federais. São utilizadas apenas as ocorrências que possuem registro de latitude e longitude.
+
+O aplicativo permite identificar as regiões onde os acidentes estão mais concentrados.
+
+É possível definir o período das ocorrências e sua abrangência. Quanto maior a precisão, menor será a abrangência territorial de cada ocorrência. Dessa forma é possível identificar as macro regiões mais suscetíveis a ocorrências. O nível de aproximação do mapa pode ser alterado para analisar regiões específicas. A localização das delegacias e postos da Polícia Rodoviária Federal podem ser exibidas no mapa para confrontar com as áreas mais e menos intensas.
+
+Mais informações: http://lcnsqr.com/macao-mapa-de-calor-de-ocorrencias/macao-acidentes
