@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<!-- jQuery -->
+		<script type="text/javascript" src="jquery/jquery-1.10.2.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="jquery/jquery.mobile-1.3.2.min.css" />
+		<script type="text/javascript" src="jquery/jquery.mobile-1.3.2.min.js"></script>
+		<script type="text/javascript" src="jquery/jquery.maskedinput.min.js"></script>
+
+		<!-- Leaflet -->
+		<link rel="stylesheet" type="text/css" href="leaflet/leaflet.css" />
+		<script type="text/javascript" src="leaflet/leaflet.js"></script>
+
+		<!-- App -->
+		<script src="db.js"></script>
+		<script src="macao.js"></script>
+		<script src="index.js"></script>
+		<style>
+		div.footer-controller {display: none;}
+		</style>
+		<title>Mapa de Calor de Ocorrências</title>
+    </head>
+    <body>
+
+		<div data-role="page" id="start">
+
+			<div id="map" data-role="content">
+			<h1>Aguarde, iniciando...</h1>
+			</div><!-- /content -->
+
+			<div data-role="footer" data-position="fixed" data-theme="b">
+				<h1 id="footer-info">Mapa de Calor de Acidentes</h1>
+				<a href="#preferences" data-icon="gear" class="ui-btn-right" data-iconpos="notext">Menu</a>
+			</div><!-- /footer -->
+
+			<!-- Preferências -->
+			<style>.ui-panel-inner { padding: 0; }</style>
+			<div data-role="panel" id="preferences" data-position="right" data-display="overlay" data-swipe-close="false">
+				<div id="preferences-content" data-role="content">
+				<ul data-role="listview" data-divider-theme="b">
+					<li data-icon="delete"><a href="#start" data-rel="close">Preferências</a></li>
+					<li data-role="list-divider">Período:</li>
+					<li><label for="date-from">Data inicial:</label><input name="date-from" id="date-from" type="date" value=""></li>
+					<li><label for="date-to">Data final:</label><input name="date-to" id="date-to" type="date" value=""></li>
+					<li>
+					<!--
+					<fieldset class="ui-grid-a">
+						<div class="ui-block-a"><button id="cancel-date-range">Cancelar</button></div>
+						<div class="ui-block-b"><button id="set-date-range" data-theme="b">Definir</button></div>
+					</fieldset>
+					-->
+						<button id="set-date-range" data-theme="b" data-icon="check">Definir</button>
+						<div data-role="popup" data-position-to="#set-date-range" id="date-range-popup">
+						<p>Erro</p>
+						</div>
+					</li>
+					<li data-role="list-divider">Exibição</li>
+					<li><label for="radius">Precisão:</label><input name="radius" id="radius" min="0" max="10" value="0" type="range"></li>
+					<li><label for="opacity">Opacidade:</label><input name="opacity" id="opacity" min="0" max="10" value="0" type="range"> </li>
+					<li data-role="list-divider">Posicionar</li>
+					<li>
+						<button id="set-center" data-theme="b" data-icon="home">Onde estou</button>
+						<div data-role="popup" data-position-to="#set-center" id="set-center-popup">
+						<p>Indisponível</p>
+						</div>
+					</li>
+					<li data-role="list-divider">Polícia Rodoviária Federal</li>
+					<li>
+						<label for="delegacias">Localização das delegacias:</label>
+						<select name="delegacias" id="delegacias" data-role="slider" data-tipo="unidade" data-codigo="1"> 
+							<option value="0">Não</option>
+							<option value="1">Sim</option>
+						</select>
+					</li>
+					<li>
+						<label for="postos">Localização dos postos:</label>
+						<select name="postos" id="postos" data-role="slider" data-tipo="unidade" data-codigo="5"> 
+							<option value="0">Não</option>
+							<option value="1">Sim</option>
+						</select>
+					</li>
+					<li data-role="list-divider">Macao</li>
+					<li data-icon="info"><a href="#about">Sobre</a></li>
+				</ul>
+				</div>
+			</div> <!-- /preferências -->
+
+		</div><!-- /page -->
+		
+		<div data-role="page" id="about">
+			<div data-role="header" data-theme="b">
+			<h1>Macao: Acidentes em Rodovias Federais</h1>
+			<a href="#start" data-direction="reverse" data-rel="close" data-iconpos="notext" data-role="button" data-icon="back" data-inline="true">Voltar</a>
+			</div><!-- /header -->
+			<div data-role="content">
+			<h1>Macao</h1>
+			<h2>Mapa de Calor de Ocorrências</h2>
+			<p>Gera um mapa de calor das ocorrências de acidentes em rodovias federais. São utilizadas apenas as ocorrências que possuem registro de latitude e longitude.</p>
+			<h3>Autor</h3>
+			<p>Luciano Antonio Siqueira &ndash; <a href="mailto:lcnsqr@gmail.com">lcnsqr@gmail.com</a></p>
+			<h3>Licença</h3>
+			<p>GPLv3</p>
+			<h3>Fontes de dados</h3>
+			<p>Sistema BR-Brasil - Boletins de Ocorrências em Rodovias Federais &ndash; <a href="http://dados.gov.br">dados.gov.br</a>.</p>
+			<p>OpenStreetMap &ndash; <a href="http://www.openstreetmap.org">www.openstreetmap.org</a>.</p>
+			<p>Todos os dados utilizados são abertos e licenciados sob a <a href="http://opendatacommons.org/licenses/odbl/">Open Data Commons Open Database License</a> (ODbL).</p>
+			</div><!-- /content -->
+		</div><!-- /page -->
+
+    </body>
+</html>
