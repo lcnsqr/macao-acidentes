@@ -74,7 +74,7 @@ MapView.prototype = {
 			mapview.canvas = new L.imageOverlay(image, mapview.map.getBounds(), {opacity: mapview.opacity});
 			mapview.canvas.addTo(mapview.map);
 			$.mobile.loading("hide");
-			$("#footer-info").html(mapview.coords.length + " acidentes de " + mapview.dateFrom + " à " + mapview.dateTo);
+			$("#footer-info").html(mapview.coords.length + " acidentes de " + mapview.dateFrom + " a " + mapview.dateTo);
 		});
 	},
 	reload: function(){
